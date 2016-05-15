@@ -14,3 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::auth();
+
+Route::get('auth/email-authenticate/{token}', [
+    'as' => 'auth.email-authenticate',
+    'uses' => 'Auth\AuthController@authenticateEmail'
+]);
+
+Route::get('/home', 'HomeController@index');
